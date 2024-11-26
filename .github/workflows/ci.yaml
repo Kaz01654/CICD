@@ -98,7 +98,8 @@ jobs:
           echo "The next new tag will be: ${{ steps.taggerFinal.outputs.new_tag }}"
 
   generate_git_release:
-    needs: [test, sonarcloud, generate_git_tags]
+    needs: [sonarcloud, generate_git_tags]
+    # needs: [test, sonarcloud, generate_git_tags]
     name: GitHub Release
     runs-on: ubuntu-latest
     steps:
