@@ -17,7 +17,14 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm ci
-
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan ZAP website
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.1.0
+        with:
+          target: 'https://www.zaproxy.org/'
   # test:
   #   name: Run Tests
   #   runs-on: ubuntu-latest
